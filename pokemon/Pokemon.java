@@ -82,7 +82,7 @@ public class Pokemon {
 
                         if (aiOpponent.health <= 0) {
                             System.out.println("/nCongratulations! You defeated the AI Opponent!");
-                            System.exit(0);
+                            break;
                         } else if (trainer.health <= 0) {
                             System.out.println("You were defeated by the AI Opponent!");
                             break;
