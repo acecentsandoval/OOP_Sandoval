@@ -1,7 +1,4 @@
-        /*
-         * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-         * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
-         */
+
         package students;
 
         import java.util.Scanner;
@@ -33,7 +30,6 @@
                 this.name = name;
             }
 
-
             public void setCourse(String course) {
                 this.course = course;
             }
@@ -42,18 +38,22 @@
                 this.grade = grade;
             }
 
-            public static void main(String[] args) {
+             public Students(){
                 Scanner user = new Scanner(System.in);
                 Students[] list = new Students[10];
                 int ctr = 0;
 
                 while (true) {
+                    System.out.println("-------------------------------");;
+                    System.out.println("-----Student Registration------");
+                    System.out.println("-------------------------------");
                     System.out.println("1. Add Student ");
-                    System.out.println("2. View Student List");
-                    System.out.println("3. Edit Student Record");
-                    System.out.println("4. Search Student Record");
+                    System.out.println("2. View All Student");
+                    System.out.println("3. Edit Student");
+                    System.out.println("4. Search Student");
                     System.out.println("5. Delete Student");
-                    System.out.println("5. Exit");
+                    System.out.println("6. Exit");
+                    System.out.println("-------------------------------");
                     int number = user.nextInt();
 
                     if (number == 1) {
@@ -64,12 +64,15 @@
                             String course = user.next();
                             System.out.println("Enter student grade: ");
                             double grade = user.nextDouble();
+                            System.out.println("Student Added");
+                            System.out.println("-------------------------------");
 
                             Students student = new Students(name, course, grade);
                             list[ctr] = student;
                             ctr++;
                         } else {
                             System.out.println("Student list is already 10.");
+                            System.out.println("-------------------------------");;
                         }
                     } else if (number == 2) {
                         System.out.println("View Student List:");
@@ -78,9 +81,12 @@
                             System.out.println("Name: " + list[i].getName());
                             System.out.println("Course: " + list[i].getCourse());
                             System.out.println("Grade: " + list[i].getGrade());
-                            System.out.println(" ");
+                            System.out.println("-------------------------------");
                         }
                     } else if (number == 3) {
+                        System.out.println("-------------------------------");
+                        System.out.println("Search a Student");
+                        System.out.println("-------------------------------");
                         System.out.println("Enter the student number ");
                         int num = user.nextInt();
                         if (num >= 1 || num <= ctr) {
@@ -94,11 +100,14 @@
                             list[num - 1].setName(newName);
                             list[num - 1].setCourse(newCourse);
                             list[num - 1].setGrade(newGrade);
-                            System.out.println("Student record updated successfully.");
+                            System.out.println("---------------------------");
+                            System.out.println("Student record updated.");
+                            System.out.println("---------------------------");
                         } else {
                             System.out.println("Invalid number not found.");
                         }
                     } else if (number == 4) {
+                        System.out.println("-------------------------------");
                         System.out.println("Search the name of the student: ");
                         String Search = user.next();
                         boolean found = false;
@@ -117,6 +126,7 @@
                             System.out.println("Student not found.");
                         }
                     } else if (number == 5) {
+                        System.out.println("-------------------------------------------");
                         System.out.println("Enter the number of the student to delete:");
                             int num = user.nextInt();
                             if (num >= 1 || num <= ctr) {
@@ -126,7 +136,7 @@
                             }
                             list[ctr - 1] = null;
                             ctr--;
-                                System.out.println("Student record deleted successfully.");
+                                System.out.println("Student record deleted.");
                             } else {
                                 System.out.println("Invalid number not found.");
                             }
@@ -137,7 +147,11 @@
                             System.out.println("Invalid!");
                         }
                     }
-                
                 }
-            }
+            
 
+            public static void main(String[] args) {  
+                Students s = new Students();
+        }   
+    }
+        
