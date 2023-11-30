@@ -1,6 +1,7 @@
-import java.time.LocalTime;
-import java.util.Scanner;
 
+
+import java.util.Scanner;
+import java.time.LocalTime;
 interface Alarm {
     void setAlarm(String time);
 
@@ -19,27 +20,35 @@ public class Monday extends Weekday {
     }
 
     public void showAlarm() {
-        LocalTime alarm = LocalTime.parse(time);
-        LocalTime now = LocalTime.now();
+        try {
+            LocalTime alarm = LocalTime.parse(time);
+            LocalTime now = LocalTime.now();
 
-        if (alarm.isBefore(now)) {
-            System.out.println("Alarm is set for tomorrow!");
-        } else if (alarm.isAfter(now)) {
-            System.out.println("I'll wake you up later!");
-        } else {
-            System.out.println("Valid");
+            if (alarm.isAfter(now)) {
+                System.out.println("Alarm is set for tomorrow!");
+            } else {
+                System.out.println("I'll wake you up later!");
+            }
+        } catch (Exception e) {
+            System.out.println("Invalid time format. Please use HH:MM");
         }
-
     }
 
     public static void main(String[] args) {
         Scanner user = new Scanner(System.in);
-        System.out.print("Enter Time for alarm in this format (HH:MM): ");
-        String alarm = user.nextLine();
+        while (true) {
+            System.out.print("Enter Time for alarm in this format (HH:MM): ");
+            String alarm = user.nextLine();
 
-        Monday monday = new Monday();
-        monday.setAlarm(alarm);
-        monday.showAlarm();
+            if (alarm.equalsIgnoreCase("exit")) {
+                System.out.println("Exiting the program. Goodbye!");
+                break;
+            }
+
+            Monday monday = new Monday();
+            monday.setAlarm(alarm);
+            monday.showAlarm();
+        }
+
     }
-
 }
