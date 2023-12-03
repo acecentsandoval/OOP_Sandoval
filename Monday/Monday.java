@@ -1,7 +1,7 @@
 
-
 import java.util.Scanner;
 import java.time.LocalTime;
+
 interface Alarm {
     void setAlarm(String time);
 
@@ -24,7 +24,7 @@ public class Monday extends Weekday {
             LocalTime alarm = LocalTime.parse(time);
             LocalTime now = LocalTime.now();
 
-            if (alarm.isAfter(now)) {
+            if (alarm.isAfter(now) && alarm.isBefore(now)) {
                 System.out.println("Alarm is set for tomorrow!");
             } else {
                 System.out.println("I'll wake you up later!");
