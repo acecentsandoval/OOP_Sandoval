@@ -12,7 +12,7 @@ class BloodData {
  }
 
  public void display() {
-  System.out.println(bloodType+rhFactor+" is added to the blood bank."); //prints message
+  System.out.println(bloodType+rhFactor+" is added to the blood bank."); 
  }
 }
 
@@ -20,22 +20,22 @@ public class RunBloodData {
 
  public static void main(String[] args) {
   
-  Scanner sc=new Scanner(System.in); //create Scanner instance
+  Scanner sc=new Scanner(System.in); 
   
   System.out.print("Enter blood type of patient: ");
-  String input1=sc.nextLine(); //accept input from user
+  String input1=sc.nextLine(); 
   
   System.out.print("Enter the Rhesus factor (+ or -): ");
-  String input2=sc.nextLine(); //accept input from user
+  String input2=sc.nextLine();
   
-  BloodData bd; //create instance
+  BloodData bd; 
   
-  if("".equals(input1) || "".equals(input2)) //if any of inputs is blank
-   bd=new BloodData(); //allocates memory using default constructor
+  if("".equals(input1) || "".equals(input2)) 
+   bd=new BloodData(); 
   
-  else     //if valid inputs
-   bd=new BloodData(input1,input2); //allocates memory using parameterized constructor
+  else    
+   bd=new BloodData(input1,input2); 
   
-  bd.display(); //invokes display method
+  bd.display(); 
  }
 }
