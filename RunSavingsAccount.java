@@ -75,6 +75,7 @@ public class RunSavingsAccount {
                 savings.withdraw(user.nextDouble());
                 
             } else if(choice.equalsIgnoreCase("Q")) {
+                System.out.println("Exiting...");
                 running = true; 
             }else{
                 System.out.println("Invalid input, Please Try Again");
