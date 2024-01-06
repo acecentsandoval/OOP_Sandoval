@@ -67,12 +67,10 @@ public class RunSavingsAccount {
             String choice = user.next();
             
             if(choice.equalsIgnoreCase("D")) {
-                clearConsole();
                 System.out.print("Enter deposit amount: ");
                 savings.deposit(user.nextDouble());
                 
             } else if(choice.equalsIgnoreCase("W")) {
-                clearConsole();
                 System.out.print("Enter withdraw amount: ");
                 savings.withdraw(user.nextDouble());
                 
@@ -90,11 +88,6 @@ public class RunSavingsAccount {
             }
         }
 
-    }
-
-    private static void clearConsole() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
     }
 
 }
