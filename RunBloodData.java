@@ -22,8 +22,10 @@ class BloodData {
 public class RunBloodData {
 
   public static void main(String[] args) {
-    Scanner sc = new Scanner(System.in); 
+    boolean running = true;
     
+    Scanner sc = new Scanner(System.in); 
+    while(true){
     System.out.print("Enter blood type of patient: ");
     String input1 = sc.nextLine();
     
@@ -39,5 +41,16 @@ public class RunBloodData {
     }
     
     bd.display();
+
+    if(input1.equalsIgnoreCase("exit") ) {
+      System.out.println("Exit...");
+      System.exit(0);
+    }else if (input2.equalsIgnoreCase("exit")){
+        System.out.println("Exit...");
+        System.exit(0);
+    }else{
+      System.out.println("");
+    }
+  }
   }
 }
